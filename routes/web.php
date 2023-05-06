@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AppController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,11 +14,19 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
+/*Route::get('/', function () {
     return view('welcome');
-});
+});*/
 
-Route::get('/home/verusers', [App\Http\Controllers\HomeController::class, 'verUsers'])->name('verUsers');
+Route::get('/', [AppController::class, 'index'])->name('home');
+
+//Route::get('/', [AppController::class, 'index'])->name('home');
+
+Route::get('/test', [AppController::class, 'about'])->name('acerca_de');
+
+/*Route::get('/home/verusers', [App\Http\Controllers\HomeController::class, 'verUsers'])->name('verUsers');
 Route::get('/home/verroles', [App\Http\Controllers\HomeController::class, 'verRoles'])->name('verRoles');
 Route::get('/home/vermenus', [App\Http\Controllers\HomeController::class, 'verMenus'])->name('verMenus');
+*/
 
+//Route::get('login', [App\Http\Controllers\LoginController::class, 'acceder'])->name('login');
